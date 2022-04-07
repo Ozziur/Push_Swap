@@ -6,13 +6,13 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 11:58:19 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/01/17 12:11:52 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/04/07 18:51:52 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*new;
 

@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   arrey_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 17:23:53 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/04/07 19:19:49 by mruizzo          ###   ########.fr       */
+/*   Created: 2022/04/07 19:19:20 by mruizzo           #+#    #+#             */
+/*   Updated: 2022/04/07 22:30:07 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstcheck(t_list *stack_a, int check)
+int	*copy_cont(t_list *stack_a, int size)
 {
-	while (stack_a->next != NULL)
+	int	*cpy;
+	int	i;
+
+	i = 0;
+	cpy = ft_calloc(sizeof(int), size);
+	if (!cpy)
+		ft_display_exit();
+	while (stack_a != NULL)
 	{
-		if (stack_a->content == check)
-			ft_display_exit();
+		cpy[i] = stack_a->content;
 		stack_a = stack_a->next;
-	}
-	return ;
-}
-
-void	write_lst(t_list **stack_a, int argc, char **argv, int i)
-{
-	t_list	*tmp;
-
-	tmp = NULL;
-	while (i < argc)
-	{
-		tmp = ft_lstnew(ft_atoi(argv[i]));
-		ft_lstadd_back(stack_a, tmp);
-		ft_lstcheck(*stack_a, tmp->content);
 		i++;
 	}
-	// ft_lst_order(stack_a);
-	// ft_lst_inverted(stack_a);
-	tmp = NULL;
+	return (cpy);
 }
