@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arrey_utils.c                                      :+:      :+:    :+:   */
+/*   order.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/07 19:19:20 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/04/14 16:19:49 by mruizzo          ###   ########.fr       */
+/*   Created: 2022/04/14 17:45:38 by mruizzo           #+#    #+#             */
+/*   Updated: 2022/04/14 17:50:41 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*copy_cont(t_list *stack_a, int size)
+int	ft_best_nbr_a(t_list *stack_a, int size, int *arr, int max)
 {
-	int	*cpy;
+	int	pos;
 	int	i;
 
+	pos = 0;
 	i = 0;
-	cpy = ft_calloc(sizeof(int), size);
-	if (!cpy)
-		ft_display_exit();
 	while (stack_a != NULL)
 	{
-		cpy[i] = stack_a->content;
+		i = 0;
+		while (stack_a->content != arr[i] && i < max)
+		{
+			if (i == max - 1)
+				return (pos);
+			i++;
+		}
 		stack_a = stack_a->next;
-		i++;
+		pos++;
 	}
-	return (cpy);
+	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 15:58:06 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/04/07 22:33:50 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/04/14 19:31:56 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ static void	lst_split(t_list **stack_a, t_list **stack_b, int size)
 	max = 0;
 	cpy = copy_cont(*stack_a, size);
 	lis = define_lis(cpy, size, &max);
-
 	free(cpy);
+	ft_move_to_b(stack_a, stack_b, lis, max);
+	ft_move_to_a(stack_a, stack_b);
+
 	free(lis);
 }
 
@@ -58,5 +60,5 @@ int	main(int argc, char **argv)
 	else
 		check_argv(argc, argv, &stack_a);
 	size = ft_lstsize(stack_a);
-//	lst_split(&stack_a, &stack_b, size);
+	lst_split(&stack_a, &stack_b, size);
 }
