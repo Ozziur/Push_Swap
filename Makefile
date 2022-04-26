@@ -6,7 +6,7 @@
 #    By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/01 16:33:08 by mruizzo           #+#    #+#              #
-#    Updated: 2022/04/06 17:23:51 by mruizzo          ###   ########.fr        #
+#    Updated: 2022/04/26 16:31:18 by mruizzo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror 
 
 NAME = push_swap
-SRC = main.c utils.c
+SRC = main.c utils.c min_max.c move.c order_utils.c order.c sort.c 
 
 LIBFT_A = libft.a
 LIBFT_DIR = libft/

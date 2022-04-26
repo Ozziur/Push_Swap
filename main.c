@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 15:58:06 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/04/14 19:31:56 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/04/26 16:30:05 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	lst_split(t_list **stack_a, t_list **stack_b, int size)
 	free(cpy);
 	ft_move_to_b(stack_a, stack_b, lis, max);
 	ft_move_to_a(stack_a, stack_b);
-
+//controlla
 	free(lis);
 }
 

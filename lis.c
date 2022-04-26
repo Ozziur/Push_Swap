@@ -6,53 +6,33 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 13:52:28 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/04/14 16:07:17 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/04/26 15:56:51 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*ft_lis_util_helper(int max)
-{
-	int	*val;
-
-	val = (int *) malloc (sizeof(int) * (max + 1));
-	if (!val)
-		ft_display_exit();
-	val[max - 1] = 2147483647;
-	return (val);
-}
-
 int	*ft_lis_util(int *dst, int *arr, int max, int size)
 {
-	int	i;
 	int	j;
 	int	*val;
-	int	x;
 
 	j = size;
-	val = ft_lis_util_helper(max - 1);
-	while (max-- >= 1)
+	val = malloc(sizeof(int) * max);
+	while (j >= 0)
 	{
-		i = j;
-		x = 0;
-		while (--i >= 0)
+		if (arr[j] == max)
 		{
-			if (arr[i] == max && ((dst[i] < val[max])
-					|| val[max - 1] == 2147483647)
-				&& ((dst[i] > val[max - 1]) || (x == 0)))
-			{
-				val[max - 1] = dst[i];
-				j = i;
-				x = 1;
-			}
+			val[max - 1] = dst[j];
+			max--;
 		}
+		j--;
 	}
 	free(arr);
 	return (val);
 }
 
-int	*ft_define_lis(int *dst, int size, int *max)
+int	*define_lis(int *dst, int size, int *max)
 {
 	int	*arr;
 	int	i;
