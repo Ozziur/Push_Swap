@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 15:58:06 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/04/26 16:30:05 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/04/28 17:56:50 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 static void	lst_split(t_list **stack_a, t_list **stack_b, int size)
 {
-	int	*cpy;
-	int	*lis;
-	int	max;
+	int	*dst;
+	int	*arr;
+	int	i;
 
-	max = 0;
-	cpy = copy_cont(*stack_a, size);
-	lis = define_lis(cpy, size, &max);
-	free(cpy);
-	ft_move_to_b(stack_a, stack_b, lis, max);
+	i = 0;
+	dst = copy_cont(*stack_a, size);
+	arr = define_lis(dst, size, &i);
+	ft_move_to_b(stack_a, stack_b, arr, i);
 	ft_move_to_a(stack_a, stack_b);
-//controlla
-	free(lis);
+	ft_search_min(stack_a, size);
+	free (dst);
+	free (arr);
 }
 
-static void	check_argv(int argc, char **argv, t_list **stack_a)
+void	check_argv(int argc, char **argv, t_list **stack_a)
 {
 	int		size;
 	char	**arg;
@@ -37,8 +37,8 @@ static void	check_argv(int argc, char **argv, t_list **stack_a)
 	size = 0;
 	if (argc == 2)
 	{
-		ft_split(argv[1], ' ');
-		while (!arg[size])
+		arg = ft_split(argv[1], ' ');
+		while (arg[size] != NULL)
 			size++;
 		write_lst(stack_a, size, arg, 0);
 		ft_free_char_table(arg);
@@ -61,4 +61,7 @@ int	main(int argc, char **argv)
 		check_argv(argc, argv, &stack_a);
 	size = ft_lstsize(stack_a);
 	lst_split(&stack_a, &stack_b, size);
+	ft_lst_delete(&stack_a);
+	ft_lst_delete(&stack_b);
+	return (0);
 }

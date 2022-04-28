@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 15:57:12 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/04/26 16:50:14 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/04/28 15:35:25 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,18 @@ int		ft_the_needed_a(t_list *stack_a, int cont, int size);
 int		ft_max_or_min(t_list *stack_a, int cont, int size);
 int		return_max_or_min(int cont, int *max_n_min, int size);
 int		*ft_intcpy(int	*arr, int size);
+int		ft_best_comb(int *arr_a, int *arr_b, int size);
+int		ft_max_nbr(int a, int b);
+int		ft_best_comb_helper(int *arr_a, int *arr_b, int *tmp, int size);
+int		ft_move_a(int a, int b, t_list **stack_a, t_list **stack_b);
+void	ft_rrr(t_list **stack_a, t_list **stack_b);
+void	ft_rr(t_list **stack_a, t_list **stack_b);
+void	ft_rra(t_list **stack_a);
+void	ft_rrb(t_list **stack_b);
+void	ft_rb(t_list **stack_b);
+void	ft_pa(t_list **stack_b, t_list **stack_a);
+void	ft_search_min(t_list **stack_a, int size);
+int		*define_lis(int *dst, int size, int *max);
+void	ft_lst_delete(t_list **stack);
+void	ft_sa(t_list **stack_a);
 #endif

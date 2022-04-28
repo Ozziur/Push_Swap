@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 14:09:35 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/01/17 14:56:57 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/04/28 17:44:16 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,13 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*temp;
+	t_list	*tmp;
 
-	if (lst)
+	if (*lst != NULL)
 	{
-		if (*lst == NULL)
-			*lst = new;
-		else
-		{
-			temp = ft_lstlast(*lst);
-			temp -> next = new;
-		}
+		tmp = ft_lstlast(*lst);
+		tmp->next = new;
 	}
+	else
+		(*lst) = new;
 }

@@ -6,68 +6,76 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:03:01 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/01/18 17:38:59 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/04/28 17:47:56 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_wrd(char const *s, char c)
+int	nb_words(const char *s, char c)
 {
 	int	i;
-	int	ris;
+	int	j;
 
 	i = 0;
-	ris = 0;
-	while (s[i])
-	{
-		if ((s[i + 1] == c || s[i + 1] == '\0') == 1
-			&& (s[i] == c || s[i] == '\0') == 0)
-			ris++;
-		i++;
-	}
-	return (ris);
-}
-
-static char	*wrd_up(const char *src, int start, int finish)
-{
-	char	*cpy;
-	size_t	i;
-
-	i = 0;
-	cpy = ft_calloc((finish - start + 1), sizeof (char));
-	if (cpy == NULL)
-		return (NULL);
-	while (start < finish)
-		cpy[i++] = src[start++];
-	return (cpy);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int		flag;
-	size_t	i;
-	size_t	j;
-	char	**s_str;
-
-	if (!s)
-		return (NULL);
-	s_str = ft_calloc((count_wrd(s, c) + 1), sizeof(char *));
-	if (s_str == NULL || s == NULL)
-		return (NULL);
 	j = 0;
-	i = 0;
-	flag = -1;
-	while (i <= ft_strlen(s))
+	while (*s != '\0')
 	{
-		if (s[i] != c && flag < 0)
-			flag = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && flag >= 0)
+		if ((*s != c) && (j == 0))
 		{
-			s_str[j++] = wrd_up(s, flag, i);
-			flag = -1;
+			j = 1;
+			i++;
+		}
+		if (*s == c)
+			j = 0;
+		s++;
+	}
+	return (i);
+}
+
+static char	**wds_assign(const char *s, char c, char **dest, size_t len)
+{
+	size_t	i;
+	size_t	x;
+	int		j;
+
+	i = 0;
+	x = 0;
+	j = -1;
+	while (i <= len)
+	{
+		if (s[i] != c && j < 0)
+			j = i;
+		else if ((s[i] == c || i == len) && j >= 0)
+		{
+			dest[x++] = ft_substr(s, j, (i - j));
+			j = -1;
 		}
 		i++;
 	}
-	return (s_str);
+	dest[x] = 0;
+	return (dest);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**dest;
+	size_t	len;
+	int		i;
+
+	i = 0;
+	if (s[0] == '\0')
+		exit(0);
+	while (s[i] <= 32 && s[i] != '\0')
+	{
+		i++;
+		if (s[i] == '\0')
+			exit(0);
+	}
+	len = (ft_strlen(s));
+	dest = (char **) malloc ((nb_words(s, c) + 1) * sizeof(char *));
+	if (!dest)
+		return (NULL);
+	wds_assign(s, c, dest, len);
+	return (dest);
 }

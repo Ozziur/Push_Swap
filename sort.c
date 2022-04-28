@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 16:21:32 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/04/14 19:41:44 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/04/28 18:03:02 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,19 @@ void	ft_move_to_a(t_list **stack_a, t_list **stack_b)
 	int	size_a;
 	int	size_b;
 
+	i = 0;
 	size_a = ft_lstsize(*stack_a);
 	size_b = ft_lstsize(*stack_b);
-	i = 0;
 	while (*stack_b != NULL)
 	{
-		i = ft_best_nbr_b(stack_b, size_b, stack_a, size_a); //inplementare funzione in oder.c
+		i = ft_best_nbr_b(stack_b, size_b, stack_a, size_a);
 		if (i < 0)
 			while (i++ < 0)
-				ft_rrb(stack_b);//inplementare in move
+				ft_rrb(stack_b);
 		else if (i > 0)
 			while (i-- > 0)
-				ft_rb(stack_b);//inplementare in move.c
-		ft_pa(stack_a, stack_b);//inplementare
+				ft_rb(stack_b);
+		ft_pa(stack_b, stack_a);
 		size_a++;
 		size_b--;
 	}
