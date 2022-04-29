@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 15:57:12 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/04/28 15:35:25 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/04/29 16:46:33 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ void	ft_search_min(t_list **stack_a, int size);
 int		*define_lis(int *dst, int size, int *max);
 void	ft_lst_delete(t_list **stack);
 void	ft_sa(t_list **stack_a);
+void	ft_basic_algorithm(t_list **stack_a, t_list **stack_b);
 #endif
