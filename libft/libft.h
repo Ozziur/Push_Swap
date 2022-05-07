@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:24:29 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/04/26 16:05:18 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/05/06 18:33:03 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,7 @@ void	ft_lstiter(t_list *lst, void (*f)(int *));
 t_list	*ft_lstmap(t_list *lst, int *(*f)(int *), void (*del)(int *));
 void	ft_display_exit(void);
 void	ft_free_char_table(char **table);
+char	*ft_get_next_line_gnl(int fd);
+int		ft_strcmp(char *s1, char *s2);
 
 #endif
