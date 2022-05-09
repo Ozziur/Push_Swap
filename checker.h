@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 18:10:47 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/05/06 18:31:30 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/05/09 15:51:19 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CHECKER_H
 
 # include "libft/libft.h"
+# include "GNL/get_next_line.h"
 
 void	ft_exec_sort(t_list **stack_a, t_list **stack_b, char *str);
 void	ft_rrr_or_death(t_list **stack_a, t_list **stack_b, char *str);
@@ -32,5 +33,6 @@ void	ft_rr_check(t_list **stack_a, t_list **stack_b);
 void	ft_rra_check(t_list **stack_a);
 void	ft_rrb_check(t_list **stack_b);
 void	ft_rrr_check(t_list **stack_a, t_list **stack_b);
+void	ft_lst_delete(t_list **stack);
 
 #endif

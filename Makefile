@@ -6,7 +6,7 @@
 #    By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/01 16:33:08 by mruizzo           #+#    #+#              #
-#    Updated: 2022/05/07 15:55:39 by mruizzo          ###   ########.fr        #
+#    Updated: 2022/05/09 15:55:24 by mruizzo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,15 @@ NAME = push_swap
 SRC = main.c utils.c min_max.c order_utils.c order.c sort.c array_utils.c lis.c move_one.c move_two.c move_three.c basic.c
 
 B_NAME = checker
-B_SRC =  checker.c check_write.c check_op_one.c check_op_two.c check_op_three.c
+B_SRC =  checker.c check_write.c check_op_one.c check_op_two.c check_op_three.c $(GNL)
 
 LIBFT_A = libft.a
 LIBFT_DIR = libft/
 LIBFT = $(addprefix $(LIBFT_DIR), $(LIBFT_A))
+
+GNL_DIR = GNL/
+GNL_SRC = get_next_line.c get_next_line_utils.c
+GNL = $(addprefix $(GNL_DIR), $(GNL_SRC))
 
 OBJ = $(SRC:.c=.o)
 B_OBJ	=	$(B_SRC:.c=.o)

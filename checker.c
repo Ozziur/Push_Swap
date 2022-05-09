@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 18:04:45 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/05/07 17:50:40 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/05/09 15:58:02 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_exec_sort(t_list **stack_a, t_list **stack_b, char *str)
 		else
 			ft_rrr_or_death(stack_a, stack_b, str);
 		free(str);
-		str = ft_get_next_line_gnl(0);
+		str = get_next_line(0);
 	}
 }
 
@@ -100,9 +100,10 @@ int	main(int argc, char *argv[])
 		return (0);
 	else
 		ft_check_argv_c(argc, argv, &stack_a);
-	str = ft_get_next_line_gnl(0);
+	str = get_next_line(0);
 	ft_exec_sort(&stack_a, &stack_b, str);
 	ft_check_sort(stack_a);
-	free(str);
+	ft_lst_delete(&stack_a);
+	ft_lst_delete(&stack_b);
 	return (0);
 }

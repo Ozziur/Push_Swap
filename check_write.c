@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 18:21:01 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/05/07 15:56:19 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/05/09 15:40:44 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,21 @@ static void	ft_lstcheck_c(t_list *stack_a, int check)
 		stack_a = stack_a->next;
 	}
 	return ;
+}
+
+void	ft_lst_delete(t_list **stack)
+{
+	t_list	*tmp;
+
+	if (*stack == NULL)
+		return ;
+	tmp = *stack;
+	while (*stack != NULL)
+	{
+		tmp = (*stack)->next;
+		free (*stack);
+		*stack = tmp;
+	}
 }
 
 void	ft_check_write_lst(t_list **stack_a, int argc, char **argv, int i)
